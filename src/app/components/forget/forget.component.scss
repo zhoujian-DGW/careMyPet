@@ -1,0 +1,13 @@
+.container {
+    margin: 50% 20px;
+    background-color: #fff;
+    InputItem {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+    nz-Select {
+        width: 70%;
+    }
+}

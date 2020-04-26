@@ -1,0 +1,32 @@
+.feedSettings {
+    color: red;
+}
+
+.table {
+    table {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(221, 221, 221, 0.356);
+        th {
+            text-align: center;
+            font-size: medium;
+            width: 20%;
+        }
+        td {
+            text-align: center;
+            font-size: medium;
+            width: 20%;
+            height: 45px;
+        }
+    }
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.save {
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: right;
+}

@@ -1,0 +1,9 @@
+<InputItem [content]="'原密码'" [(ngModel)]="passwordChange.oldpwd" [type]="'password'">
+</InputItem>
+
+<InputItem [content]="'新密码'" [(ngModel)]="passwordChange.newpwd" [type]="'password'"></InputItem>
+
+<InputItem [content]="'确认密码'" [(ngModel)]="tmppwd" [type]="'password'"></InputItem>
+
+<div Button [type]="'primary'" [inline]="true" style="width:45%;margin-right: 10px;margin-top: 100px;" (click)="changePassword()">修改</div>
+<div Button [inline]="true" style="width: 45%;" (click)="cancel()">取消</div>

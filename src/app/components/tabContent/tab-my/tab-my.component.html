@@ -1,0 +1,21 @@
+<ion-content>
+    <List>
+        <ListItem [thumb]="'https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png'" [arrow]="'horizontal'" (onClick)="Myinfo()">
+            我的信息
+        </ListItem>
+        <ListItem [thumb]="'https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png'" (onClick)="showMyPet()" [arrow]="'horizontal'">
+            我的宠物
+        </ListItem>
+        <ListItem [thumb]="'https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png'" (onClick)="showMyEquipment()" [arrow]=" 'horizontal' ">
+            我的喂食器
+        </ListItem>
+        <ListItem [thumb]="'https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png'" (onClick)="changePwd()" [arrow]=" 'horizontal' ">
+            修改密码
+        </ListItem>
+    </List>
+</ion-content>
+<ion-content>
+    <nz-drawer [nzBodyStyle]="{overflow: 'auto', 'padding-bottom': '53px'} " [nzMaskClosable]="false " [nzVisible]="visiable " [nzTitle]="title" [nzWidth]=" 'calc(100%)' " (nzOnClose)="close() ">
+        <router-outlet></router-outlet>
+    </nz-drawer>
+</ion-content>

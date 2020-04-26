@@ -1,0 +1,24 @@
+ul {
+    border-top: 1px solid #ddd;
+    li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+}
+
+.my-list .spe .am-list-extra {
+    flex-basis: initial;
+}
+
+.buttons {
+    margin-top: 100px;
+}
+
+List {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+ListItem {
+    border-bottom: 1px solid #ddd;
+}

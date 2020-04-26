@@ -1,0 +1,71 @@
+<div>
+    <div class="toast-example">
+        <ActivityIndicator [toast]="true" [text]="'请求数据中'" [animating]="animating"></ActivityIndicator>
+    </div>
+    <List *ngFor="let pet of pets;let i=index" name="petList">
+        <ListItem [arrow]="'horizontal'" (onClick)="showDetail(i)">
+            <label nz-checkbox style="margin-right: 20px;" *ngIf="isDelete" [(ngModel)]="pet.selected"></label>
+            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]=pet.petphoto nzShape="square"></nz-avatar>
+            <span style="margin-left: 20px;">{{pet.name}}</span>
+        </ListItem>
+    </List>
+    <div *ngIf="!isDelete">
+        <div Button [type]="'primary'" [inline]="true" style="width:45%;margin-right: 10px;margin-top: 100px;" (click)="addPet()">添加宠物</div>
+        <div Button [type]="'warning'" [inline]="true" style="width: 45%;" (click)="deletePet()">删除宠物</div>
+    </div>
+    <div *ngIf="isDelete">
+        <div Button [type]="'warning'" [inline]="true" style="width:45%;margin-right: 10px;margin-top: 100px;" (click)="confirmDelete()">删除</div>
+        <div Button [inline]="true" style="width: 45%;" (click)="cancel()">取消</div>
+    </div>
+    <!-- 更新宠物的modal -->
+    <Modal [(ngModel)]="isVisiable" closable="true" title="添加新宠物">
+        <div>
+            <nz-avatar [nzSize]="64" nzIcon="user" [nzSrc]="base64Img" (click)="choosePhoto(message)" nzShape="square"></nz-avatar>
+        </div>
+        <InputItem content="宠物名称：" [(ngModel)]="PetToAdd.name"></InputItem>
+        <InputItem content="宠物种类：" [(ngModel)]="PetToAdd.type" placeholder="例如猫、狗"></InputItem>
+        <InputItem content="宠物性别：" [(ngModel)]="PetToAdd.sex" placeholder="输入公或母"></InputItem>
+        <List class="container">
+            <ListItem DatePicker [platform]="'android'" (onOk)="onOk($event)" [minDate]="minDate" [maxDate]="maxDate">
+                生日：{{PetToAdd.birthday}}
+            </ListItem>
+        </List>
+        <div Button [type]="'primary'" [inline]="true" style="width:45%;margin-right: 10px;margin-top: 100px;" (click)="addPetConfirm()">添加</div>
+        <div Button [inline]="true" style="width: 45%;" (click)="cancelAdd()">取消</div>
+    </Modal>
+
+    <!-- 宠物卡片的modal -->
+    <Modal [(ngModel)]="cardVisiable" closable="true" title="宠物详情" (onClose)="onCardClose()">
+        <WingBlank [size]="'lg'">
+            <Card>
+                <CardHeader [title]="name" [extra]="type" [thumb]="thumb">
+                    <ng-template #name>
+                        <span (click)="showUpdateNameModal()" style="margin-left: 30px;">{{detail.name}}</span>
+                    </ng-template>
+                    <ng-template #type>
+                        <span (click)=" showUpdateTypeModal()" style="margin-right: 30px;">{{detail.type}}</span>
+                    </ng-template>
+                    <ng-template #thumb>
+                        <img [src]="detail.petphoto" style="width: 64px;height: 64px;" (click)="updatePetPhoto()">
+                    </ng-template>
+                </CardHeader>
+                <CardBody>
+                    <List>
+                        <ListItem platform="android">年龄：{{detail.age}}</ListItem>
+                        <ListItem platform="android" DatePicker [minDate]="minDate" [maxDate]="maxDate" (onOk)="updateBirthday($event)">生日：{{detail.birthday}}</ListItem>
+                        <ListItem platform="android" (onClick)="updateSex()">性别：{{detail.sex}}</ListItem>
+                        <!-- <ListItem platform="android">体长(厘米)：{{detail.height}}</ListItem> -->
+                        <ListItem platform="android">体重(公斤)：{{detail.heavy}}</ListItem>
+                        <ListItem platform="android">体温(摄氏度)：{{detail.temperature}}</ListItem>
+                        <ListItem platform="android">健康状态：{{detail.health}}</ListItem>
+                    </List>
+                </CardBody>
+                <CardFooter [content]="footercontent">
+                    <ng-template #footercontent>
+                        <div>测量时间：{{detail.time}}</div>
+                    </ng-template>
+                </CardFooter>
+            </Card>
+        </WingBlank>
+    </Modal>
+</div>

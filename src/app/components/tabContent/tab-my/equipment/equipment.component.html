@@ -1,0 +1,13 @@
+<div>
+    <InputItem content="设备编号" placeholder="可于喂食器上找到" [(ngModel)]="equipment_id" [disabled]="disabled"></InputItem>
+</div>
+<div style="font-size: larger;margin-left: 20px;">状态：
+    <span *ngIf="status=='在线'" style="color: green;">{{status}}
+  </span>
+    <span *ngIf="status=='离线'" style="color: red;">{{status}}</span>
+    <span *ngIf="status=='未绑定喂食器'" style="color: yellow;">{{status}}</span>
+</div>
+<div style="text-align: right;">
+    <button nz-button [nzLoading]="loading" nzType="primary" (click)="submit()" [disabled]="!canSubmit">提交{{condition}}</button>
+    <button nz-button (click)="editEquipment()" style="margin-left: 20px;" [disabled]="!canEdit">修改</button>
+</div>

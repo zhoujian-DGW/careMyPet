@@ -1,0 +1,16 @@
+<ion-content>
+    <div class="container">
+        <InputItem [content]="'手机号'" [(ngModel)]="phone"></InputItem>
+        <nz-input-group nzCompact>
+            <input type="text" nz-input style="width:30%;" disabled value="密保问题" />
+            <nz-select [(ngModel)]="qaa.question">
+                <nz-option *ngFor="let question of questionList" [nzValue]='question.question' [nzLabel]='question.question'></nz-option>
+            </nz-select>
+        </nz-input-group>
+        <InputItem [content]="'答案'" [(ngModel)]="qaa.answer"></InputItem>
+        <div Button [type]="'primary'" (click)='check()'>修改密码</div>
+    </div>
+    <div class="toast-example">
+        <ActivityIndicator [toast]="true" [text]="'请求数据中'" [animating]="animating"></ActivityIndicator>
+    </div>
+</ion-content>

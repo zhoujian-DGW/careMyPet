@@ -1,0 +1,9 @@
+<div class="container">
+    <InputItem [(ngModel)]="phone" [content]="'手机号'" [type]="'phone'"></InputItem>
+    <InputItem [type]="'password'" [(ngModel)]="password" [content]="'密码'"></InputItem>
+    <div Button [type]="'primary'" (click)="login()">登陆</div>
+    <div class="action">没有账号？点击<a routerLink='/register'>注册</a><a class="forget" (click)="forget()">忘记密码</a></div>
+    <div class="toast-example">
+        <ActivityIndicator [toast]="true" [text]="'登陆中'" [animating]="animating"></ActivityIndicator>
+    </div>
+</div>

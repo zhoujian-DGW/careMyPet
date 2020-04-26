@@ -1,0 +1,39 @@
+<List [className]="'my-list'">
+    <ListItem [platform]="'android'" (onClick)="usernameClick()">
+        用户名：{{userInfoTmp.username}}
+    </ListItem>
+    <ListItem [platform]="'android'" (onClick)="phoneClick()">
+        手机号：{{userInfoTmp.phone}}
+    </ListItem>
+    <ListItem [platform]="'android'" (onClick)="sexClick()">
+        性别：{{userInfoTmp.sex}}
+    </ListItem>
+    <ListItem [platform]="'android'" (onClick)="emailClick()">
+        邮箱：{{userInfoTmp.email}}
+    </ListItem>
+    <ListItem DatePicker [platform]="'android'" (onOk)="onOk($event)" [minDate]="minDate" [maxDate]="maxDate">
+        生日：{{userInfoTmp.birthday}}
+    </ListItem>
+    <ListItem [platform]="'android'" [arrow]="'horizontal'" (onClick)="realClick()">
+        实名信息
+    </ListItem>
+</List>
+<div class="buttons">
+    <div Button [type]="'primary'" [inline]="true" style="width:45%;margin-right: 10px;" (click)="saveChange()">保存</div>
+    <div Button [inline]="true" style="width: 45%;" (click)="cancelChange()">取消修改</div>
+</div>
+<Modal [title]="'实名信息'" [maskClosable]="true" (onClose)="modalClose()" [transparent]="true" [(ngModel)]="Modalvisible">
+    <List>
+        <ListItem [platform]="'android'" (onClick)="realnameClick()">
+            真实姓名：{{realnameToShow}}
+        </ListItem>
+        <ListItem [platform]="'android'" (onClick)="idCardClick()">
+            身份证号：{{idCardToShow}}
+        </ListItem>
+        <div Button [type]="'primary'" [inline]="true" style="width:45%;margin-right: 10px;" (click)="save()" *ngIf="userInfo.realname==' '">保存</div>
+        <div Button [inline]="true" style="width: 45%;" (click)="cancel()" *ngIf="userInfo.cardId==' '">取消</div>
+    </List>
+</Modal>
+<div class="toast-example">
+    <ActivityIndicator [toast]="true" [text]="'请求数据中'" [animating]="animating"></ActivityIndicator>
+</div>

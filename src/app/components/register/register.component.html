@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="container">
+        <InputItem [(ngModel)]="username" [content]="'用户名'"></InputItem>
+        <InputItem [type]="'password'" [(ngModel)]="password" [content]="'密码'"></InputItem>
+        <InputItem [type]="'password'" [(ngModel)]="ensure" [content]="'再输一次'"></InputItem>
+        <InputItem [type]="'phone'" [(ngModel)]="phone" [content]="'手机号'"></InputItem>
+        <nz-select [(ngModel)]="qaa1.question">
+            <nz-option *ngFor="let question of questionList;let key=index" [nzValue]='question' [nzLabel]='question'></nz-option>
+        </nz-select>
+        <InputItem [content]="'答案'" [(ngModel)]="qaa1.answer"></InputItem>
+        <nz-select [(ngModel)]="qaa2.question">
+            <nz-option *ngFor="let question of questionList;let key=index" [nzValue]='question' [nzLabel]='question'></nz-option>
+        </nz-select>
+        <InputItem [content]="'答案'" [(ngModel)]="qaa2.answer"></InputItem>
+        <nz-select [(ngModel)]="qaa3.question">
+            <nz-option *ngFor="let question of questionList;let key=index" [nzValue]='question' [nzLabel]='question'></nz-option>
+        </nz-select>
+        <InputItem [content]="'答案'" [(ngModel)]="qaa3.answer"></InputItem>
+        <InputItem content="设备号" placeholder="可于喂食器上找到,可不填" [(ngModel)]="equipment_id"></InputItem>
+        <div Button [type]="'primary'" (click)='register()'>注册</div>
+    </div>
+</ion-content>

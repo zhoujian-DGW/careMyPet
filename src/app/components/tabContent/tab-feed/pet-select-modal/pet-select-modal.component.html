@@ -1,0 +1,10 @@
+<div class="close"><strong>选择宠物</strong><a (click)="cancel()">关闭</a></div>
+<ion-content>
+    <List *ngFor="let pet of petList;let i=index">
+        <ListItem [arrow]="'horizontal'" (onClick)="selectPet(i)">
+            <label nz-checkbox style="margin-right: 20px;" *ngIf="isDelete" [(ngModel)]="pet.selected"></label>
+            <nz-avatar [nzSize]="48" nzIcon="user" [nzSrc]=pet.petphoto nzShape="square"></nz-avatar>
+            <span style="margin-left: 20px;">{{pet.name}}</span>
+        </ListItem>
+    </List>
+</ion-content>

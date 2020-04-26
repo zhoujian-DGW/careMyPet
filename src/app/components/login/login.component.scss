@@ -1,0 +1,19 @@
+.container {
+    margin: 50% auto;
+    width: 90%;
+    background-color: #fff;
+    InputItem {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+}
+
+.action {
+    margin-top: 10px;
+    font-size: medium;
+}
+
+.forget {
+    float: right;
+}

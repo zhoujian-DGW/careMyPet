@@ -1,0 +1,42 @@
+<CardHeader [title]="name" [extra]="type" [thumb]="thumb" style="border-bottom: solid 2px #ddd;">
+    <ng-template #name>
+        <span style="margin-left: 40px;">{{petSelected.name}}</span>
+    </ng-template>
+    <ng-template #type>
+        <ion-button color="primary" (click)="presentModal()">更换宠物</ion-button>
+    </ng-template>
+    <ng-template #thumb>
+        <img [src]="petSelected.petphoto" style="width: 48px;height: 48px;">
+    </ng-template>
+</CardHeader>
+<ion-content>
+    <div class="title">喂食设置</div>
+    <div class="table">
+        <table>
+            <tr>
+                <th>喂食轮次</th>
+                <th>喂食时间</th>
+                <th>喂食量</th>
+                <th>开关</th>
+                <th>操作</th>
+            </tr>
+            <tr *ngFor="let item of feedList;let i=index">
+                <td>{{i+1}}</td>
+                <td>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="feedList[i].time" (click)="needUpdate(i)"></ion-datetime>
+                </td>
+                <td (click)="showFood(i)">{{feedList[i].quantity}}</td>
+                <td>
+                    <Switch color="#66ccff" (click)="needUpdate(i)" [(ngModel)]="feedList[i].switch"></Switch>
+                </td>
+                <td><a (click)="deleteOne(i)">删除</a></td>
+            </tr>
+        </table>
+        <div style="text-align: center;border-bottom: 1px solid #ddd;">
+            <ion-icon name="add" style="width: 30px; height: 30px;" (click)="addOne()"></ion-icon>
+        </div>
+        <div class="save">
+            <button nz-button [nzLoading]="loading" nzType="primary" *ngIf="edit" (click)="savechanges()">{{buttonText}}</button>
+        </div>
+    </div>
+</ion-content>
