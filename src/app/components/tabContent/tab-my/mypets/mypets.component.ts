@@ -81,7 +81,7 @@ export class MypetsComponent implements OnInit {
       this.base64Img = 'data:image/jpeg;base64,' + imageData;
       callback();
     }, (err) => {
-     
+     this.toast.fail("请授予相机权限");
     });
   }
 
